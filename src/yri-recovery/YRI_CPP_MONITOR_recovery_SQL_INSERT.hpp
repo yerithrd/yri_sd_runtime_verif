@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR_recovery_SQL_INSERT.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YRI_CPP_MONITOR_RECOVERY_SQL_INSERT_

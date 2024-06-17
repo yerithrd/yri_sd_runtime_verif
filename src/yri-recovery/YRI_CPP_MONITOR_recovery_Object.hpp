@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR_recovery_Object.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef YRI_CPP_MONITOR_RECOVERY_OBJECT

@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR_EVENT.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 

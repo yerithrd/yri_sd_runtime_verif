@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR_EDGE.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 

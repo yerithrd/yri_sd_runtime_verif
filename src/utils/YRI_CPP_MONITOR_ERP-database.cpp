@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR_ERP-database.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #include "YRI_CPP_MONITOR_ERP-database.hpp"
