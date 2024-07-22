@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR_ERP-database.hpp
  *
- *      Author: Pr. Prof. Dr. Xavier Noundou
+ *      Author: Pr.  Prof.  Dr.-Ing. Xavier Noundou
  */
 
 #ifndef SRC_UTILS_YEROTH_DATABASE_HPP_

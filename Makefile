@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = yri_sd_runtime_verif1.0.0
-DISTDIR = /home/yerith/yri_sd_runtime_verif/_generated/yri_sd_runtime_verif1.0.0
+DISTDIR = /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/yri_sd_runtime_verif1.0.0
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -464,7 +464,7 @@ _generated/moc_YRI_CPP_MONITOR.cpp: src/YRI_CPP_MONITOR.hpp \
 		src/YRI_CPP_MONITOR_object.hpp \
 		_generated/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR.hpp -o _generated/moc_YRI_CPP_MONITOR.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith-erp-pgi/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR.hpp -o _generated/moc_YRI_CPP_MONITOR.cpp
 
 _generated/moc_YRI_CPP_MONITOR_EDGE.cpp: src/YRI_CPP_MONITOR_EDGE.hpp \
 		src/utils/YRI_CPP_UTILS.hpp \
@@ -475,7 +475,7 @@ _generated/moc_YRI_CPP_MONITOR_EDGE.cpp: src/YRI_CPP_MONITOR_EDGE.hpp \
 		src/YRI_CPP_MONITOR_EVENT.hpp \
 		_generated/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_EDGE.hpp -o _generated/moc_YRI_CPP_MONITOR_EDGE.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith-erp-pgi/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_EDGE.hpp -o _generated/moc_YRI_CPP_MONITOR_EDGE.cpp
 
 _generated/moc_YRI_CPP_MONITOR_EVENT.cpp: src/YRI_CPP_MONITOR_EVENT.hpp \
 		src/utils/YRI_CPP_UTILS.hpp \
@@ -483,14 +483,14 @@ _generated/moc_YRI_CPP_MONITOR_EVENT.cpp: src/YRI_CPP_MONITOR_EVENT.hpp \
 		src/YRI_CPP_MONITOR_object.hpp \
 		_generated/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_EVENT.hpp -o _generated/moc_YRI_CPP_MONITOR_EVENT.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith-erp-pgi/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_EVENT.hpp -o _generated/moc_YRI_CPP_MONITOR_EVENT.cpp
 
 _generated/moc_YRI_CPP_MONITOR_object.cpp: src/YRI_CPP_MONITOR_object.hpp \
 		src/utils/YRI_CPP_UTILS.hpp \
 		src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.HPP \
 		_generated/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_object.hpp -o _generated/moc_YRI_CPP_MONITOR_object.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith-erp-pgi/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_object.hpp -o _generated/moc_YRI_CPP_MONITOR_object.cpp
 
 _generated/moc_YRI_CPP_MONITOR_STATE.cpp: src/YRI_CPP_MONITOR_STATE.hpp \
 		src/utils/YRI_CPP_UTILS.hpp \
@@ -498,7 +498,7 @@ _generated/moc_YRI_CPP_MONITOR_STATE.cpp: src/YRI_CPP_MONITOR_STATE.hpp \
 		src/YRI_CPP_MONITOR_object.hpp \
 		_generated/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_STATE.hpp -o _generated/moc_YRI_CPP_MONITOR_STATE.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith-erp-pgi/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_STATE.hpp -o _generated/moc_YRI_CPP_MONITOR_STATE.cpp
 
 _generated/moc_YRI_CPP_MONITOR_TRACE_EVENT.cpp: src/YRI_CPP_MONITOR_TRACE_EVENT.hpp \
 		src/utils/YRI_CPP_UTILS.hpp \
@@ -506,13 +506,13 @@ _generated/moc_YRI_CPP_MONITOR_TRACE_EVENT.cpp: src/YRI_CPP_MONITOR_TRACE_EVENT.
 		src/YRI_CPP_MONITOR_object.hpp \
 		_generated/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_TRACE_EVENT.hpp -o _generated/moc_YRI_CPP_MONITOR_TRACE_EVENT.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith-erp-pgi/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/YRI_CPP_MONITOR_TRACE_EVENT.hpp -o _generated/moc_YRI_CPP_MONITOR_TRACE_EVENT.cpp
 
 _generated/moc_YRI_CPP_UTILS.cpp: src/utils/YRI_CPP_UTILS.hpp \
 		src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.HPP \
 		_generated/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/utils/YRI_CPP_UTILS.hpp -o _generated/moc_YRI_CPP_UTILS.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith-erp-pgi/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/utils/YRI_CPP_UTILS.hpp -o _generated/moc_YRI_CPP_UTILS.cpp
 
 _generated/moc_YRI_CPP_MONITOR_recovery_Object.cpp: src/yri-recovery/YRI_CPP_MONITOR_recovery_Object.hpp \
 		src/YRI_CPP_MONITOR.hpp \
@@ -521,7 +521,7 @@ _generated/moc_YRI_CPP_MONITOR_recovery_Object.cpp: src/yri-recovery/YRI_CPP_MON
 		src/YRI_CPP_MONITOR_object.hpp \
 		_generated/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/yri-recovery/YRI_CPP_MONITOR_recovery_Object.hpp -o _generated/moc_YRI_CPP_MONITOR_recovery_Object.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith-erp-pgi/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/yri-recovery/YRI_CPP_MONITOR_recovery_Object.hpp -o _generated/moc_YRI_CPP_MONITOR_recovery_Object.cpp
 
 _generated/moc_YRI_CPP_MONITOR_recovery_SQL_INSERT.cpp: src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.hpp \
 		src/yri-recovery/YRI_CPP_MONITOR_recovery_Object.hpp \
@@ -531,7 +531,7 @@ _generated/moc_YRI_CPP_MONITOR_recovery_SQL_INSERT.cpp: src/yri-recovery/YRI_CPP
 		src/YRI_CPP_MONITOR_object.hpp \
 		_generated/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.hpp -o _generated/moc_YRI_CPP_MONITOR_recovery_SQL_INSERT.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/yerith-erp-pgi/yri_sd_runtime_verif/_generated/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/yerith-erp-pgi/yri_sd_runtime_verif -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10 -I/usr/include/c++/10/backward -I/usr/lib/gcc/x86_64-linux-gnu/10/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.hpp -o _generated/moc_YRI_CPP_MONITOR_recovery_SQL_INSERT.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

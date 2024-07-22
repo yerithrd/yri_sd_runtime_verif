@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_notinset_inset_TRACE_expression.CPP
  *
- *      Author: Pr. Prof. Dr. Xavier Noundou
+ *      Author: Pr.  Prof.  Dr.-Ing. Xavier Noundou
  */
 
 #include "YRI_CPP_notinset_inset_TRACE_expression.HPP"
