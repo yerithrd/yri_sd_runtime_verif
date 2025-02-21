@@ -46,6 +46,20 @@ void YRI_CPP_MONITOR_STATE::
 
 
 void YRI_CPP_MONITOR_STATE::
+		set_Post_NOP(bool Is_A_POST_no_operation_Dummy_TRUE_value)
+{
+    _SET_POST_nop = Is_A_POST_no_operation_Dummy_TRUE_value;
+
+    if (Is_A_POST_no_operation_Dummy_TRUE_value)
+    {
+        _SET_IN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
+
+        _SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
+    }
+}
+
+
+void YRI_CPP_MONITOR_STATE::
 		set_in_post_STATEPROPERTYKEY__to__VALUE(QString a_stateproperty_KEY,
                                                 QString a_VALUE)
 {
@@ -91,6 +105,8 @@ void YRI_CPP_MONITOR_STATE::
 
     _SET_IN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
 
+    set_Post_NOP(false);
+
     _SET_IN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
 
     _SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
@@ -115,6 +131,8 @@ void YRI_CPP_MONITOR_STATE::
 
     _SET_notIN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
 
+    set_Post_NOP(false);
+
     _SET_IN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
 
     _SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
@@ -136,6 +154,8 @@ void YRI_CPP_MONITOR_STATE::
 		return ;
 	}
 
+	set_Post_NOP(false);
+
     set_notin_POST_STATEPROPERTYKEY__to__VALUE(DB_VARIABLE,
                                                db_query_TABLE__db_query_COLUMN);
 
@@ -145,6 +165,32 @@ void YRI_CPP_MONITOR_STATE::
     _SET_notIN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
 
     _SET_IN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
+}
+
+
+/**
+ * REMOVES ANY OTHER state-condition.
+ */
+void YRI_CPP_MONITOR_STATE::set_POST_CONDITION_Nop(bool Is_A_POST_no_operation_Dummy_TRUE_value)
+{
+	if (is_START_STATE())
+	{
+		QDEBUG_STRING_OUTPUT_2("YRI_CPP_MONITOR_STATE::set_POST_CONDITION_Nop",
+							   "A POST-CONDITION CANNOT BE set on a start state");
+
+		return ;
+	}
+
+    if (Is_A_POST_no_operation_Dummy_TRUE_value)
+    {
+        set_Post_NOP(true);
+
+        _SET_IN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
+
+        _SET_notIN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
+
+        _SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
+    }
 }
 
 
@@ -170,6 +216,8 @@ void YRI_CPP_MONITOR_STATE::
     _SET_IN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
 
     _SET_notIN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
+
+    set_Post_NOP(false);
 
     _SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
 }
@@ -207,6 +255,10 @@ QString YRI_CPP_MONITOR_STATE::GET_STRING_representation_OF_state_condition()
 						 _SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE
 						 	 .value(_STATE_CONDITION__db_variable));
 	}
+    else if (GET_db_Post_Nop())
+    {
+        result = QString("post_nop");
+    }
 
 	return result;
 }

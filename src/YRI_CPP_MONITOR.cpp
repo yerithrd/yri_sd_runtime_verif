@@ -464,6 +464,12 @@ bool YRI_CPP_MONITOR::
 
         return is_ACCEPTING_STATE_NOT_in;
     }
+    else if (A_POTENTIAL_ACCEPTING_STATE.GET_db_Post_Nop())
+    {
+        //qDebug() << "POST-state-CONDITION is a dummy TRUE";
+
+        return true;
+    }
 
     return false;
 }
@@ -934,6 +940,12 @@ YRI_CPP_MONITOR::
 					.arg(a_last_edge_VARIABLE_STRING_pointer,
 						 _AN_EDGE.get_TARGET_STATE()->_SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE.keys().at(0),
 						 _AN_EDGE.get_TARGET_STATE()->_SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE.values().at(0));
+        }
+        else if (_AN_EDGE.get_TARGET_STATE()->GET_db_Post_Nop())
+        {
+        	POST_CONDITION_code =
+        		QString("%1->get_TARGET_STATE()->set_POST_CONDITION_Nop(true);\n")
+					.arg(a_last_edge_VARIABLE_STRING_pointer);
         }
 
         returned_code.append(POST_CONDITION_code);

@@ -139,6 +139,11 @@ public:
 
     bool CHECK_post_condition_notIN(QMap<QString, QString> &SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE_map);
 
+    bool CHECK_post_condition_NOP()
+    {
+        return true;
+    }
+
     bool CHECK_post_condition_IN(QMap<QString, QString> &SET_IN_POST_STATEPROPERTYKEY_TO_VALUE_map);
 
     //########################
