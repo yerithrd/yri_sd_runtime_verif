@@ -735,9 +735,15 @@ QString YRI_CPP_MONITOR::
 
 QString YRI_CPP_MONITOR::
             YRI_generate_cplusplus_headers_files(QString A_hpp_FILE_NAME,
-                                                QString a_class_NAME)
+                                                 QString a_class_NAME)
 {
     QString EDGES_EVENTS_TOKENS_declarations;
+
+
+    QString a_method_signature_for_AN_EDGE;
+
+
+    QSet<QString> unique_edges_Already_Processed_FOR_code_export_generation;
 
 
     QString EXPORTED_EDGE_SOURCE_CODE;
@@ -750,7 +756,8 @@ QString YRI_CPP_MONITOR::
     {
         _AN_EDGE = _EDGES.at(i);
 
-        if (0 != _AN_EDGE && _AN_EDGE != _ROOT_EDGE)
+        if (0 != _AN_EDGE       &&
+            _AN_EDGE != _ROOT_EDGE)
         {
             EDGE_EVENT_token_with_parenthesis =
                             _AN_EDGE->get_EDGE_EVENT_TOKEN();
@@ -762,17 +769,36 @@ QString YRI_CPP_MONITOR::
             EDGE_EVENT_token_with_parenthesis =
                             EDGE_EVENT_token_with_parenthesis.replace(".", "_");
 
+
             EDGE_EVENT_token_with_parenthesis =
                             EDGE_EVENT_token_with_parenthesis.replace("'", "");
 
-            EDGES_EVENTS_TOKENS_declarations.append(QString("bool %1; ")
-                                                     .arg(EDGE_EVENT_token_with_parenthesis));
+
+            a_method_signature_for_AN_EDGE =
+                QString("bool %1; ")
+                  .arg(EDGE_EVENT_token_with_parenthesis);
+
+
+            if (unique_edges_Already_Processed_FOR_code_export_generation
+                    .contains(a_method_signature_for_AN_EDGE))
+            {
+                continue ;
+            }
+
+            unique_edges_Already_Processed_FOR_code_export_generation
+                .insert(a_method_signature_for_AN_EDGE);
+
+
+            EDGES_EVENTS_TOKENS_declarations.append(a_method_signature_for_AN_EDGE);
+
 
             EXPORTED_EDGE_SOURCE_CODE
 				.append(_AN_EDGE->YRI_EXPORT_edge_CLASS_INSTANCE());
         }
     }
 
+//    qDebug() << "unique_edges_Already_Processed_FOR_code_export_generation: \n"
+//             << unique_edges_Already_Processed_FOR_code_export_generation;
 
     YRI_open_HEADER_TEMPLATE_FILE();
 
@@ -980,9 +1006,15 @@ QString YRI_CPP_MONITOR::
 
 QString YRI_CPP_MONITOR::
     YRI_generate_cplusplus_sources_files(QString A_hpp_FILE_NAME,
-                                        QString a_class_NAME)
+                                         QString a_class_NAME)
 {
     QString EDGES_EVENTS_TOKENS__DEFINITIONS;
+
+
+    QString a_method_for_AN_EDGE;
+
+
+    QSet<QString> unique_edges_Already_Processed_FOR_code_export_generation;
 
 
     QString EXPORTED_EDGE_SOURCE_CODE;
@@ -995,10 +1027,12 @@ QString YRI_CPP_MONITOR::
     {
         _AN_EDGE = _EDGES.at(i);
 
-        if (0 != _AN_EDGE && _AN_EDGE != _ROOT_EDGE)
+        if (0 != _AN_EDGE       &&
+            _AN_EDGE != _ROOT_EDGE)
         {
             EDGE_EVENT_token_with_parenthesis =
                             _AN_EDGE->get_EDGE_EVENT_TOKEN();
+
 
             EDGE_EVENT_token_with_parenthesis =
                             QString("YRI_SQL_%1()").arg(_AN_EDGE->
@@ -1010,11 +1044,28 @@ QString YRI_CPP_MONITOR::
             EDGE_EVENT_token_with_parenthesis =
                             EDGE_EVENT_token_with_parenthesis.replace("'", "");
 
+
+            a_method_for_AN_EDGE =
+                    QString("bool %1::%2\n" "{ \nreturn " "%3" "\n}\n ")
+                        .arg(a_class_NAME,
+                             EDGE_EVENT_token_with_parenthesis,
+                             GENERATE_METHOD_event_call(_AN_EDGE->get_EDGE_EVENT_TOKEN()));
+
+
+            if (unique_edges_Already_Processed_FOR_code_export_generation
+                    .contains(a_method_for_AN_EDGE))
+            {
+                continue ;
+            }
+
+
+            unique_edges_Already_Processed_FOR_code_export_generation
+                .insert(a_method_for_AN_EDGE);
+
+
             EDGES_EVENTS_TOKENS__DEFINITIONS
-            	.append(QString("bool %1::%2\n" "{ \nreturn " "%3" "\n}\n ")
-            				.arg(a_class_NAME,
-            					 EDGE_EVENT_token_with_parenthesis,
-								 GENERATE_METHOD_event_call(_AN_EDGE->get_EDGE_EVENT_TOKEN())));
+            	.append(a_method_for_AN_EDGE);
+
 
             EXPORTED_EDGE_SOURCE_CODE
 				.append(_AN_EDGE->YRI_EXPORT_edge_CLASS_INSTANCE());

@@ -63,7 +63,7 @@ protected:
 
 public:
 
-    virtual ~ YRI_CPP_MONITOR_EDGE();
+    virtual ~YRI_CPP_MONITOR_EDGE();
 
     QString YRI_EXPORT_edge_CLASS_INSTANCE();
 

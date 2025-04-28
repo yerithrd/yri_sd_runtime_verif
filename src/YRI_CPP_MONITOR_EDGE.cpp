@@ -103,16 +103,18 @@ bool YRI_CPP_MONITOR_EDGE::operator== (YRI_CPP_MONITOR_EDGE &e1)
     {
         edge_event_EQUAL =
                         YRI_CPP_UTILS::isEqualsCaseInsensitive(_EDGE_EVENT->get_EVENT_TOKEN(),
-                                                             e1_edge_event->
-                                                             get_EVENT_TOKEN());
+                                                               e1_edge_event->get_EVENT_TOKEN());
     }
 
-    return
-                    edge_event_EQUAL &&
-                    YRI_CPP_UTILS::isEqualsCaseInsensitive(get_TARGET_STATE_KEY(),
-                                                         e1.get_TARGET_STATE_KEY()) &&
-                    YRI_CPP_UTILS::isEqualsCaseInsensitive(get_SOURCE_STATE_KEY(),
-                                                         e1.get_SOURCE_STATE_KEY());
+    edge_event_EQUAL =  edge_event_EQUAL &&
+                       YRI_CPP_UTILS::isEqualsCaseInsensitive(get_TARGET_STATE_KEY(),
+                                                              e1.get_TARGET_STATE_KEY()) &&
+                       YRI_CPP_UTILS::isEqualsCaseInsensitive(get_SOURCE_STATE_KEY(),
+                                                              e1.get_SOURCE_STATE_KEY());
+
+    return edge_event_EQUAL &&
+           YRI_CPP_UTILS::isEqualsCaseInsensitive(toString(),
+                                                  e1.toString());
 }
 
 
