@@ -782,6 +782,8 @@ QString YRI_CPP_MONITOR::
             if (unique_edges_Already_Processed_FOR_code_export_generation
                     .contains(a_method_signature_for_AN_EDGE))
             {
+                QDEBUG_STRING_OUTPUT_2("YRI_generate_cplusplus_headers_files | NOT re-creating a duplicate event method : ",
+                                       a_method_signature_for_AN_EDGE);
                 continue ;
             }
 
