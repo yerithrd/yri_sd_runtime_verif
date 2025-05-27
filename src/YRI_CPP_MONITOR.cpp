@@ -763,8 +763,8 @@ QString YRI_CPP_MONITOR::
                             _AN_EDGE->get_EDGE_EVENT_TOKEN();
 
             EDGE_EVENT_token_with_parenthesis =
-                            QString("YRI_SQL_%1()").arg(_AN_EDGE->
-                                                       get_EDGE_EVENT_TOKEN());
+                            QString("YRI_SQL_%1___Event()").arg(_AN_EDGE->
+                                                                get_EDGE_EVENT_TOKEN());
 
 
             EDGE_EVENT_token_with_parenthesis =
@@ -1042,8 +1042,8 @@ QString YRI_CPP_MONITOR::
 
 
             EDGE_EVENT_token_with_parenthesis =
-                            QString("YRI_SQL_%1()").arg(_AN_EDGE->
-                                                       get_EDGE_EVENT_TOKEN());
+                            QString("YRI_SQL_%1___Event()").arg(_AN_EDGE->
+                                                                get_EDGE_EVENT_TOKEN());
 
             EDGE_EVENT_token_with_parenthesis =
                             EDGE_EVENT_token_with_parenthesis.replace("#", "___");
