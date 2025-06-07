@@ -64,6 +64,13 @@ public:
 
     virtual ~YRI_CPP_MONITOR();
 
+
+    virtual inline YRI_CPP_MONITOR_ERP_database *Get___yri_SET_ALGEBRA_inclusion_DATABASE_to_query_for_STATUS()
+    {
+        return _yri_SET_ALGEBRA_inclusion_DATABASE_to_query_for_STATUS;
+    }
+
+
     void set_yri_root_edge(YRI_CPP_MONITOR_EDGE *ROOT_EDGE);
 
 
