@@ -156,15 +156,17 @@ void YRI_CPP_MONITOR_STATE::
 
 	set_Post_NOP(false);
 
-    set_notin_POST_STATEPROPERTYKEY__to__VALUE(DB_VARIABLE,
-                                               db_query_TABLE__db_query_COLUMN);
-
+	_SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
 
     _SET_IN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
 
     _SET_notIN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
 
     _SET_IN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
+
+
+    set_notin_POST_STATEPROPERTYKEY__to__VALUE(DB_VARIABLE,
+                                               db_query_TABLE__db_query_COLUMN);
 }
 
 
@@ -209,9 +211,8 @@ void YRI_CPP_MONITOR_STATE::
 		return ;
 	}
 
-    set_in_post_STATEPROPERTYKEY__to__VALUE(DB_VARIABLE,
-                                          db_query_TABLE__db_query_COLUMN);
 
+	_SET_IN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
 
     _SET_IN_PRE_STATEPROPERTYKEY_TO_VALUE.clear();
 
@@ -220,6 +221,10 @@ void YRI_CPP_MONITOR_STATE::
     set_Post_NOP(false);
 
     _SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE.clear();
+
+
+    set_in_post_STATEPROPERTYKEY__to__VALUE(DB_VARIABLE,
+                                            db_query_TABLE__db_query_COLUMN);
 }
 
 

@@ -22,6 +22,7 @@
 
 #include <QtTest/QtTest>
 
+#include <QtSql/QSqlQuery>
 #include <QtCore/QDebug>
 #include <QtCore/QProcess>
 #include <QtCore/QFile>
@@ -433,9 +434,12 @@ bool YRI_CPP_MONITOR::is_in_SET_ALGEBRA(QString a_SET_VARIABLE,
 
     //qDebug() << "strQuery: " << strQuery;
 
-    int rowCount = YRI_CPP_UTILS::execQueryRowCount(strQuery, true);
+    QSqlQuery a_qsql_query;
 
-    //qDebug() << "rowCount > 0: " << BOOL_TO_STRING(rowCount > 0);
+    int rowCount = YRI_CPP_UTILS::execQuery(a_qsql_query,
+                                            strQuery);
+
+    qDebug() << "rowCount: " << rowCount;
 
     return (rowCount > 0);
 }

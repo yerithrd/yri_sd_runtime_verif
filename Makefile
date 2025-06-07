@@ -57,6 +57,7 @@ SOURCES       = src/YRI_CPP_MONITOR.cpp \
 		src/YRI_CPP_MONITOR_TRACE_EVENT.cpp \
 		src/utils/YRI_CPP_MONITOR_ERP-database.cpp \
 		src/utils/YRI_CPP_UTILS.cpp \
+		src/utils/yri_sd_runtime_verif_VIEWER_Filterer.cpp \
 		src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.cpp \
 		src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.CPP _generated/qrc_yri_sd_runtime_verif.cpp \
 		_generated/moc_YRI_CPP_MONITOR.cpp \
@@ -76,6 +77,7 @@ OBJECTS       = _generated/YRI_CPP_MONITOR.o \
 		_generated/YRI_CPP_MONITOR_TRACE_EVENT.o \
 		_generated/YRI_CPP_MONITOR_ERP-database.o \
 		_generated/YRI_CPP_UTILS.o \
+		_generated/yri_sd_runtime_verif_VIEWER_Filterer.o \
 		_generated/YRI_CPP_MONITOR_recovery_SQL_INSERT.o \
 		_generated/YRI_CPP_notinset_inset_TRACE_expression.o \
 		_generated/qrc_yri_sd_runtime_verif.o \
@@ -186,6 +188,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/YRI_CPP_MONITOR_TRACE_EVENT.hpp \
 		src/utils/YRI_CPP_MONITOR_ERP-database.hpp \
 		src/utils/YRI_CPP_UTILS.hpp \
+		src/utils/yri_sd_runtime_verif_VIEWER_Filterer.hpp \
 		src/yri-recovery/YRI_CPP_MONITOR_recovery_Object.hpp \
 		src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.hpp \
 		src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.HPP src/YRI_CPP_MONITOR.cpp \
@@ -196,6 +199,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/YRI_CPP_MONITOR_TRACE_EVENT.cpp \
 		src/utils/YRI_CPP_MONITOR_ERP-database.cpp \
 		src/utils/YRI_CPP_UTILS.cpp \
+		src/utils/yri_sd_runtime_verif_VIEWER_Filterer.cpp \
 		src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.cpp \
 		src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.CPP
 QMAKE_TARGET  = yri_sd_runtime_verif
@@ -415,8 +419,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents yri_sd_runtime_verif.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/YRI_CPP_MONITOR.hpp src/YRI_CPP_MONITOR_EDGE.hpp src/YRI_CPP_MONITOR_EVENT.hpp src/YRI_CPP_MONITOR_object.hpp src/YRI_CPP_MONITOR_STATE.hpp src/YRI_CPP_MONITOR_TRACE_EVENT.hpp src/utils/YRI_CPP_MONITOR_ERP-database.hpp src/utils/YRI_CPP_UTILS.hpp src/yri-recovery/YRI_CPP_MONITOR_recovery_Object.hpp src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.hpp src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.HPP $(DISTDIR)/
-	$(COPY_FILE) --parents src/YRI_CPP_MONITOR.cpp src/YRI_CPP_MONITOR_EDGE.cpp src/YRI_CPP_MONITOR_EVENT.cpp src/YRI_CPP_MONITOR_object.cpp src/YRI_CPP_MONITOR_STATE.cpp src/YRI_CPP_MONITOR_TRACE_EVENT.cpp src/utils/YRI_CPP_MONITOR_ERP-database.cpp src/utils/YRI_CPP_UTILS.cpp src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.cpp src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.CPP $(DISTDIR)/
+	$(COPY_FILE) --parents src/YRI_CPP_MONITOR.hpp src/YRI_CPP_MONITOR_EDGE.hpp src/YRI_CPP_MONITOR_EVENT.hpp src/YRI_CPP_MONITOR_object.hpp src/YRI_CPP_MONITOR_STATE.hpp src/YRI_CPP_MONITOR_TRACE_EVENT.hpp src/utils/YRI_CPP_MONITOR_ERP-database.hpp src/utils/YRI_CPP_UTILS.hpp src/utils/yri_sd_runtime_verif_VIEWER_Filterer.hpp src/yri-recovery/YRI_CPP_MONITOR_recovery_Object.hpp src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.hpp src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.HPP $(DISTDIR)/
+	$(COPY_FILE) --parents src/YRI_CPP_MONITOR.cpp src/YRI_CPP_MONITOR_EDGE.cpp src/YRI_CPP_MONITOR_EVENT.cpp src/YRI_CPP_MONITOR_object.cpp src/YRI_CPP_MONITOR_STATE.cpp src/YRI_CPP_MONITOR_TRACE_EVENT.cpp src/utils/YRI_CPP_MONITOR_ERP-database.cpp src/utils/YRI_CPP_UTILS.cpp src/utils/yri_sd_runtime_verif_VIEWER_Filterer.cpp src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.cpp src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.CPP $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -601,6 +605,11 @@ _generated/YRI_CPP_MONITOR_ERP-database.o: src/utils/YRI_CPP_MONITOR_ERP-databas
 _generated/YRI_CPP_UTILS.o: src/utils/YRI_CPP_UTILS.cpp src/utils/YRI_CPP_UTILS.hpp \
 		src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.HPP
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o _generated/YRI_CPP_UTILS.o src/utils/YRI_CPP_UTILS.cpp
+
+_generated/yri_sd_runtime_verif_VIEWER_Filterer.o: src/utils/yri_sd_runtime_verif_VIEWER_Filterer.cpp src/utils/yri_sd_runtime_verif_VIEWER_Filterer.hpp \
+		src/utils/YRI_CPP_UTILS.hpp \
+		src/yri-expressions-conditions/YRI_CPP_notinset_inset_TRACE_expression.HPP
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o _generated/yri_sd_runtime_verif_VIEWER_Filterer.o src/utils/yri_sd_runtime_verif_VIEWER_Filterer.cpp
 
 _generated/YRI_CPP_MONITOR_recovery_SQL_INSERT.o: src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.cpp src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.hpp \
 		src/yri-recovery/YRI_CPP_MONITOR_recovery_Object.hpp \

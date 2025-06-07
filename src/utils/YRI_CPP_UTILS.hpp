@@ -30,6 +30,11 @@ using namespace std;
     inline void operator delete(void *ptr, size_t){ free(ptr); }
 
 
+
+class QSqlQuery;
+
+
+
 class YRI_CPP_UTILS : public QObject
 {
 	Q_OBJECT
@@ -63,8 +68,11 @@ public:
                               const QStringList &aStringList);
 
     static void qDebugStrings(const QString &firstString,
-                              const QString &secondString =
-                                              YRI_CPP_UTILS::EMPTY_STRING);
+                              const QString &secondString = YRI_CPP_UTILS::EMPTY_STRING);
+
+
+    static int execQuery(QSqlQuery      &query,
+                         const QString  &strQuery);
 
 
     static bool execQuery(const QString &strQuery,

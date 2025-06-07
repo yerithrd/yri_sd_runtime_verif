@@ -96,6 +96,35 @@ void YRI_CPP_UTILS::qDebugStrings(const QString &firstString,
 }
 
 
+int YRI_CPP_UTILS::execQuery(QSqlQuery      &query,
+                             const QString  &strQuery)
+{
+	//qDebug() << "[YerithUtils][execQuery]";
+	query.prepare(strQuery);
+
+	bool success = query.exec();
+
+	//qDebug() << "\t[" << success << "]" << query.executedQuery();
+
+    QDEBUG_STRING_OUTPUT_2("execQuery",
+                           QString("[%1] %2")
+                               .arg(BOOL_TO_STRING(success),
+                                    query.executedQuery()));
+
+	if (!success)
+	{
+        qDebug() << strQuery
+                 << "\t\t[reason for failing] "
+                 << query.lastError().text();
+
+		return -1;
+	}
+
+
+	return query.size();
+}
+
+
 bool YRI_CPP_UTILS::execQuery(const QString &strQuery,
                              bool           dbg_MSG /* = false */)
 {
