@@ -1679,9 +1679,9 @@ QString YRI_CPP_MONITOR::print_TO_dot_FILE(const QString &program_working_direct
         }
 
 
-        QProcess A_YEROTH_PROCESS;
+        //QProcess A_YEROTH_PROCESS;
 
-        A_YEROTH_PROCESS.startDetached("evince", program_executable_args);
+        QProcess::startDetached("evince", program_executable_args);
     }
 
     return dot_file_CONTENT;
