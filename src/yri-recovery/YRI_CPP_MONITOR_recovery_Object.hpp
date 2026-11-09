@@ -32,7 +32,7 @@ public:
                                           YRI_CPP_MONITOR_STATE  *a_source_state,
                                           YRI_CPP_MONITOR_STATE  *a_target_state)
     :YRI_CPP_MONITOR_object(),
-     _A_RUNTIME_MONITOR(0),
+     _A_RUNTIME_MONITOR(A_RUNTIME_MONITOR),
      _A_SOURCE_STATE(a_source_state),
      _A_TARGET_STATE(a_target_state)
     {
@@ -44,10 +44,7 @@ public:
     }
 
 
-    virtual inline bool RUN_SQL_query_string()
-    {
-        QDEBUG_STRING_OUTPUT_1("RUN_SQL_query_string: NO QUERY TO RUN SET.");
-    }
+    virtual bool RUN_SQL_query_string();
 
 
 protected:

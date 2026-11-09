@@ -12,7 +12,8 @@
 #include "YRI_CPP_MONITOR_STATE.hpp"
 
 
-#include "src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT.hpp"
+#include "src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT__in_post.hpp"
+#include "src/yri-recovery/YRI_CPP_MONITOR_recovery_SQL_INSERT__not_in_pre.hpp"
 
 
 #include "utils/YRI_CPP_MONITOR_ERP-database.hpp"
@@ -190,16 +191,27 @@ void YRI_CPP_MONITOR::
     if (0 != a_previous_source_state &&
         0 != an_error_accepting_state)
     {
-        if (!a_previous_source_state->Get_PRE_CONDITION_notIN().isEmpty())
+        if (!an_error_accepting_state->Get_POST_CONDITION_IN().isEmpty())
+        {
+            QDEBUG_STRING_OUTPUT_1("*** execute_RECOVERY_SQL_QUERY_from_accepting_error_state - INSERT SQL QUERY (in_post)");
+
+            YRI_CPP_MONITOR_recovery_SQL_INSERT__in_post
+                    execute_recovery_Sql_query_string_OBJECT__in_post(this,
+                                                                      a_previous_source_state,
+                                                                      an_error_accepting_state);
+
+            execute_recovery_Sql_query_string_OBJECT__in_post.RUN_SQL_query_string();
+        }
+        else if (!an_error_accepting_state->Get_PRE_CONDITION_notIN().isEmpty())
         {
             QDEBUG_STRING_OUTPUT_1("*** execute_RECOVERY_SQL_QUERY_from_accepting_error_state - INSERT SQL QUERY (not_in_pre)");
 
             YRI_CPP_MONITOR_recovery_SQL_INSERT
-                execute_recovery_Sql_query_string_OBJECT(this,
-                                                         a_previous_source_state,
-                                                         an_error_accepting_state);
+                    execute_recovery_Sql_query_string_OBJECT__not_in_pre(this,
+                                                                      a_previous_source_state,
+                                                                      an_error_accepting_state);
 
-            execute_recovery_Sql_query_string_OBJECT.RUN_SQL_query_string();
+            execute_recovery_Sql_query_string_OBJECT__not_in_pre.RUN_SQL_query_string();
         }
     }
 }
@@ -224,22 +236,38 @@ void YRI_CPP_MONITOR::set_Recovery_action(YRI_CPP_MONITOR_STATE *a_previous_sour
     }
 
 
-    YRI_CPP_MONITOR_recovery_SQL_INSERT
-        AN_SQL_INSERT_recovery_object(this,
-                                      a_previous_source_state,
-                                      an_error_accepting_state);
+    YRI_CPP_MONITOR_recovery_SQL_INSERT *a_recovery_Sql_Insert = 0;
+
+    if (!an_error_accepting_state->Get_POST_CONDITION_IN().isEmpty())
+    {
+        QDEBUG_STRING_OUTPUT_1("*** YRI_CPP_MONITOR::set_Recovery_action - INSERT SQL QUERY (in_post)");
+
+        a_recovery_Sql_Insert = new YRI_CPP_MONITOR_recovery_SQL_INSERT__in_post(this,
+                a_previous_source_state,
+                an_error_accepting_state);
+    }
+    else if (!an_error_accepting_state->Get_PRE_CONDITION_notIN().isEmpty())
+    {
+        QDEBUG_STRING_OUTPUT_1("*** YRI_CPP_MONITOR::set_Recovery_action - INSERT SQL QUERY (not_in_pre)");
+
+        a_recovery_Sql_Insert = new YRI_CPP_MONITOR_recovery_SQL_INSERT__not_in_pre(this,
+                a_previous_source_state,
+                an_error_accepting_state);
+    }
+
+    if (0 != a_recovery_Sql_Insert)
+    {
+        QString SQL_query_TOEXECUTE_for_Recovery =
+                a_recovery_Sql_Insert->build_SQL_QUERY_STRING_for_ERROR_STATE_SAFE_RECOVERY();
+
+        QDEBUG_STRING_OUTPUT_2("set_Recovery_action; SQL_query_TOEXECUTE_for_Recovery",
+                               SQL_query_TOEXECUTE_for_Recovery);
 
 
-    QString SQL_query_TOEXECUTE_for_Recovery =
-        AN_SQL_INSERT_recovery_object
-            .build_SQL_QUERY_STRING_for_ERROR_STATE_SAFE_RECOVERY();
-
-    QDEBUG_STRING_OUTPUT_2("set_Recovery_action; SQL_query_TOEXECUTE_for_Recovery",
-                           SQL_query_TOEXECUTE_for_Recovery);
-
-    _recoverable_error_STATES__To__SQL_query_TOEXECUTE_for_Recovery
-        .insert(an_error_accepting_state,
-                SQL_query_TOEXECUTE_for_Recovery);
+        _recoverable_error_STATES__To__SQL_query_TOEXECUTE_for_Recovery
+            .insert(an_error_accepting_state,
+                    SQL_query_TOEXECUTE_for_Recovery);
+    }
 }
 
 
@@ -880,10 +908,26 @@ QString YRI_CPP_MONITOR::
 
             if (!a_target_state->Is_SQL_RECOVERY_QUERY_STRING_Empty())
             {
-                return_code =
-                    QString("%1->get_TARGET_STATE()->Set_SQL_RECOVERY_QUERY_STRING(\"%2\");\n\n")
-                        .arg(a_last_edge_VARIABLE_STRING_pointer,
-                             a_target_state->Get_SQL_RECOVERY_QUERY_STRING());
+                QString recovery_db_table_String_specification =
+                    a_target_state->Get_SQL_RECOVERY_QUERY_DB_TABLE();
+
+                return_code = QString("%1->get_TARGET_STATE()->Set_SQL_RECOVERY_QUERY_DB_TABLE(\"%2\");\n\n")
+                                    .arg(a_last_edge_VARIABLE_STRING_pointer,
+                                         recovery_db_table_String_specification);
+
+                QString recovery_Sql_TEMPORARY_query_string =
+                            a_target_state->Get_SQL_RECOVERY_QUERY_STRING();
+
+                recovery_Sql_TEMPORARY_query_string.replace("'", "");
+                recovery_Sql_TEMPORARY_query_string.replace("#", "'");
+
+                return_code
+                    .append(QString("%1->get_TARGET_STATE()->Set_SQL_RECOVERY_QUERY_STRING(\"%2\");\n\n")
+                                .arg(a_last_edge_VARIABLE_STRING_pointer,
+                                     recovery_Sql_TEMPORARY_query_string));
+
+
+
             }
 
             return_code = return_code
