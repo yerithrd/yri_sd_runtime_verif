@@ -367,6 +367,48 @@ void YRI_CPP_MONITOR_STATE::set_FINAL_STATE(bool is_final_state)
 }
 
 
+QString YRI_CPP_MONITOR_STATE::print_to_dot_file(bool PRINT_WITH_SQL_EVENT_LOG_TOKEN /* = false */)
+{
+    QString result;
+
+    QString state_type;
+
+    if (is_FINAL_STATE())
+    {
+        state_type = PRINT_WITH_SQL_EVENT_LOG_TOKEN ?
+                        QString("ERROR_STATE(%1)").arg(get_MONITOR_STATE_NAME()) :
+                        QString("FINAL_STATE(%1)").arg(get_MONITOR_STATE_NAME());
+    }
+    else if (is_START_STATE())
+    {
+        state_type = PRINT_WITH_SQL_EVENT_LOG_TOKEN ?
+                        QString("BEGIN_STATE(%1)").arg(get_MONITOR_STATE_NAME()) :
+                        QString("FINAL_STATE(%1)").arg(get_MONITOR_STATE_NAME());
+    }
+    else
+    {
+        state_type = QString("STATE(%1)").arg(get_MONITOR_STATE_NAME());
+    }
+
+    if (!PRINT_WITH_SQL_EVENT_LOG_TOKEN)
+    {
+         result.append(QString("%1 [label=\"%2:%3\"];\n")
+                .arg(get_MONITOR_STATE_NAME(),
+                     state_type,
+                     GET_STRING_representation_OF_state_condition()));
+    }
+    else
+    {
+         result.append(QString("%1 [label=\"%2:%3\"];\n")
+                .arg(get_MONITOR_STATE_NAME(),
+                     state_type,
+                     GET_STRING_representation_OF_state_condition__ENGINEERING_ACRONYM()));
+    }
+
+    return result;
+}
+
+
 void YRI_CPP_MONITOR_STATE::print()
 {
     qDebug() << QString("%1 (IS_START_STATE: %2; IS_FINAL_STATE: %3)")

@@ -372,30 +372,52 @@ void YRI_CPP_MONITOR_EDGE::print()
 
 QString YRI_CPP_MONITOR_EDGE::print_to_dot_file(bool PRINT_WITH_SQL_EVENT_LOG_TOKEN /* = false */)
 {
+    QString result;
+
+    YRI_CPP_MONITOR_STATE *a_source_state = get_SOURCE_STATE();
+    YRI_CPP_MONITOR_STATE *a_target_state = get_TARGET_STATE();
+
+    if (0 != a_source_state && !_SOURCE_STATE_KEY.isEmpty())
+    {
+        result
+        .append(a_source_state->print_to_dot_file(PRINT_WITH_SQL_EVENT_LOG_TOKEN));
+    }
+
+    if (0 != a_target_state && !_TARGET_STATE_KEY.isEmpty())
+    {
+        result
+        .append(a_target_state->print_to_dot_file(PRINT_WITH_SQL_EVENT_LOG_TOKEN));
+    }
+
+
     if (0 != _EDGE_EVENT)
     {
         if (0 != _guarded_CONDITION_expression)
         {
-            return QString("\"%1\" -> \"%2\" [xlabel=\"[%3]/%4\"];")
-                    .arg(_SOURCE_STATE_KEY,
-                    	 _TARGET_STATE_KEY,
-						 PRINT_WITH_SQL_EVENT_LOG_TOKEN ?
-								 	_guarded_CONDITION_expression->toString__WITH__sql_event_log_SYNTAX() :
-									_guarded_CONDITION_expression->toString__WITH__standard_trace_syntax(),
-						 _EDGE_EVENT->get_EVENT_TOKEN());
+            result.append(QString("\"%1\" -> \"%2\" [xlabel=\"[%3]/%4\"];\n")
+                        .arg(_SOURCE_STATE_KEY,
+                             _TARGET_STATE_KEY,
+                             PRINT_WITH_SQL_EVENT_LOG_TOKEN ?
+                                        _guarded_CONDITION_expression->toString__WITH__sql_event_log_SYNTAX() :
+                                        _guarded_CONDITION_expression->toString__WITH__standard_trace_syntax(),
+                             _EDGE_EVENT->get_EVENT_TOKEN()));
         }
         else
         {
-            return QString("\"%1\" -> \"%2\" [xlabel=\"%3\"];")
+            result.append(QString("\"%1\" -> \"%2\" [xlabel=\"%3\"];\n")
                     .arg(_SOURCE_STATE_KEY,
                     	 _TARGET_STATE_KEY,
-						 _EDGE_EVENT->get_EVENT_TOKEN());
+						 _EDGE_EVENT->get_EVENT_TOKEN()));
         }
     }
     else
     {
-        return QString("\"%1\" -> \"%2\"")
-        		.arg(_SOURCE_STATE_KEY,
-        			 _TARGET_STATE_KEY);
+        result.append(QString("\"%1\" -> \"%2\"\n")
+                        .arg(_SOURCE_STATE_KEY,
+                             _TARGET_STATE_KEY));
     }
+
+//    QDEBUG_STRING_OUTPUT_2("result", result);
+
+    return result;
 }
